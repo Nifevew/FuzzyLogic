@@ -20,7 +20,10 @@ set(SRC_FILES
 		"${SRC_DIR}/main.cpp" )
 
 set(HEADER_FILES
-		"${INCLUDE_DIR}/main.h" )
+		"${INCLUDE_DIR}/main.h" "${INCLUDE_DIR}/FuzzyLogic.h"  "${INCLUDE_DIR}/FuzzySet.h")
+
+set(BOOST_DIR "C:/Programming/Libraries/boost_1_82_0")
+include_directories(${BOOST_DIR})
 
 # SET(PATH_TO_EXAMPLE "./example")
 
