@@ -20,7 +20,7 @@ set(SRC_FILES
 		"${SRC_DIR}/main.cpp" )
 
 set(HEADER_FILES
-		"${INCLUDE_DIR}/main.h" "${INCLUDE_DIR}/FuzzyLogic.h"  "${INCLUDE_DIR}/FuzzySet.h")
+		"${INCLUDE_DIR}/main.h" "${INCLUDE_DIR}/FuzzyLogic.h"  "${INCLUDE_DIR}/FuzzySet.h" "${INCLUDE_DIR}/FuzzyRules.h")
 
 set(BOOST_DIR "C:/Programming/Libraries/boost_1_82_0")
 include_directories(${BOOST_DIR})
@@ -28,7 +28,7 @@ include_directories(${BOOST_DIR})
 # SET(PATH_TO_EXAMPLE "./example")
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (FuzzyLogic ${SRC_FILES} ${HEADER_FILES} )
+add_executable (FuzzyLogic ${SRC_FILES} ${HEADER_FILES}  "include/FuzzyRules.h")
 
 
 
