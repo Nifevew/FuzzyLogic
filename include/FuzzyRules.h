@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -13,12 +13,12 @@
 namespace FuzzyLogic
 {
 	template<typename T>
-	FuzzySet<T> compositionalRule(const FuzzySet<T>& a, const FuzzySet<T>& b, const FuzzySet<T>& a_, std::wstring set_name_b_)
+	FuzzySet<T> compositionalRule(const FuzzySet<T>& a, const FuzzySet<T>& b, const FuzzySet<T>& a_, std::wstring name_set_b_)
 	{
 		auto x = generatingMatrixOfRelations(a.getUblasVectorValues(), b.getUblasVectorValues());
-		auto x_ = convolutionMV(x, a.getUblasVectorValues()); // TODO: проверить дополнительные копирования
+		auto x_ = convolutionMV(x, a_.getUblasVectorValues()); // TODO: проверить дополнительные копирования
 
-		FuzzySet b_(set_name_b_, x_, a.getUblasVectorTerms());
+		FuzzySet b_(name_set_b_, x_, a.getUblasVectorTerms());
 
 		return b_;
 	}
