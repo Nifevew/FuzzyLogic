@@ -97,7 +97,7 @@ namespace FuzzyLogic
 	}
 
 	template<typename T>
-	boost::numeric::ublas::vector<T> convolutionVV(const boost::numeric::ublas::vector<T>& u, const boost::numeric::ublas::vector<T>& v)
+	T convolutionVV(const boost::numeric::ublas::vector<T>& u, const boost::numeric::ublas::vector<T>& v)
 	{
 		using namespace boost::numeric;
 		T out = u(0);
