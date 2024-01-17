@@ -36,27 +36,4 @@ namespace FuzzyLogic
 		for (size_t i = 0; i < terms.size(); ++i)
 			std::wcout << std::vformat(msg, std::make_wformat_args(terms(i), a[terms(i)] * 100, a.getName(), b[terms(i)] * 100, b.getName(), a_.getName(), a_[terms(i)] * 100, b_.getName(), b_[terms(i)] * 100)) << L'\n';
 	}
-
-
-	template<typename T>
-	FuzzySet<T> modusPonensRule(const FuzzySet<T>& a, const FuzzySet<T>& b, const FuzzySet<T>& a_, std::wstring name_set_b_, std::function<T(T, T)> implication=FuzzyLogic::implicationByLotfiZadeh<T>)
-	{
-		using namespace boost::numeric;
-
-		ublas::vector<T> impl = implicationV(a.getUblasVectorValues(), b.getUblasVectorValues(), implication);
-
-		auto b_ = convolutionVV(a_.getUblasVectorValues(), impl);
-
-		FuzzySet b_fs(L"более-менее", {b_}, {});
-
-		return b_fs;
-	}
-
-	template<typename T>
-	void printModusPonensRule(std::wstring msg, const FuzzySet<T>& a, const FuzzySet<T>& b, const FuzzySet<T>& a_, const FuzzySet<T>& b_)
-	{
-        // Если человек {} и существует правило, что {} -> {}, то тогда он более-менее здоровый на {}%
-		std::wcout << std::vformat(msg, std::make_wformat_args(a_.getName(), a.getName(), b.getName(), b_.getUblasVectorValues()(0) * 100)) << L'\n';
-	}
-
 }
