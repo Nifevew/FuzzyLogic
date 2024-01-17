@@ -47,7 +47,7 @@ namespace FuzzyLogic
 
 		auto b_ = convolutionVV(a_.getUblasVectorValues(), impl);
 
-		FuzzySet b_fs(L"более-менее", {b_}, {});
+		FuzzySet<T> b_fs(L"более-менее", std::vector<T>{b_}, std::vector<std::wstring>{});
 
 		return b_fs;
 	}

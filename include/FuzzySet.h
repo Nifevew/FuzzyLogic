@@ -2,7 +2,7 @@
 
 #include <string>
 #include <unordered_map>
-#include <initializer_list>
+#include <vector>
 #include <ostream>
 
 #include "boost/numeric/ublas/vector.hpp"
@@ -15,8 +15,8 @@ namespace FuzzyLogic
     {
     public:
         FuzzySet(std::wstring name, const boost::numeric::ublas::vector<T>& values, const boost::numeric::ublas::vector<std::wstring>& terms);
-        FuzzySet(std::wstring name, const boost::numeric::ublas::vector<T>& values, const std::initializer_list<std::wstring>& terms);
-        FuzzySet(std::wstring name, const std::initializer_list<T>& values, const std::initializer_list<std::wstring>& terms);
+        FuzzySet(std::wstring name, const boost::numeric::ublas::vector<T>& values, const std::vector<std::wstring>& terms);
+        FuzzySet(std::wstring name, const std::vector<T>& values, const std::vector<std::wstring>& terms);
         FuzzySet(std::wstring name, const std::unordered_map<std::wstring, T> set);
 
         boost::numeric::ublas::vector<T> getUblasVectorValues() const;
@@ -50,7 +50,7 @@ namespace FuzzyLogic
     }
 
     template<typename T>
-    FuzzySet<T>::FuzzySet(std::wstring name, const boost::numeric::ublas::vector<T>& values, const std::initializer_list<std::wstring>& terms)
+    FuzzySet<T>::FuzzySet(std::wstring name, const boost::numeric::ublas::vector<T>& values, const std::vector<std::wstring>& terms)
     {
         for (size_t i = 0; i < values.size(); ++i)
             set_[terms[i]] = values(i);
@@ -58,7 +58,7 @@ namespace FuzzyLogic
     }
 
     template<typename T>
-    FuzzySet<T>::FuzzySet(std::wstring name, const std::initializer_list<T>& values, const std::initializer_list<std::wstring>& terms)
+    FuzzySet<T>::FuzzySet(std::wstring name, const std::vector<T>& values, const std::vector<std::wstring>& terms)
     {
         for (size_t i = 0; i < values.size(); ++i)
             set_[terms[i]] = values[i];
