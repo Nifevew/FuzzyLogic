@@ -3,7 +3,13 @@
 
 #pragma once
 
+#include <io.h>
+#include <fcntl.h>
+
 #include <iostream>
-#include "../include/test.h"
+#include <string>
+
+#include "../include/FuzzySet.h"
+#include "../include/FuzzyRules.h"
 
 // TODO: установите здесь ссылки на дополнительные заголовки, требующиеся для программы.
