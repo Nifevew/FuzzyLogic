@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -47,7 +47,7 @@ namespace FuzzyLogic
 
 		auto b_ = convolutionVV(a_.getUblasVectorValues(), impl);
 
-		FuzzySet<T> b_fs(L"более-менее", std::vector<T>{b_}, std::vector<std::wstring>{});
+		FuzzySet<T> b_fs(L"более-менее", std::vector<T>{b_}, std::vector<std::wstring>{L""});
 
 		return b_fs;
 	}
